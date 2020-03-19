@@ -1,0 +1,12 @@
+<h3>Register</h3>
+<form #loginForm="ngForm" id="submit-form" (ngSubmit)="onSubmit()">
+  <input type="text" placeholder="name" id="name" 
+  name="name" [(ngModel)]="user.username"><br>
+  <input type="text" placeholder="email" id="email" 
+  name="email" [(ngModel)]="user.email"><br>
+  <input type="password" placeholder="password" id="password" 
+  name="password" [(ngModel)]="user.password"><br>
+</form>
+
+<button type="submit" form="submit-form" value="Submit">Submit</button>
+<button type="button" routerLink="/login" routerLinkActive="active">Login Screen</button>

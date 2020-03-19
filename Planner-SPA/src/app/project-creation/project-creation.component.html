@@ -1,0 +1,11 @@
+<h3>Add a project</h3>
+<form #loginForm="ngForm" id="submit-form" (ngSubmit)="onClick()">
+  <input type="text" placeholder="name" id="name" 
+  name="name" [(ngModel)]="project.name"><br>
+  <input type="number" placeholder="priority" id="priority" 
+  name="priority" [(ngModel)]="project.priority"><br>
+  <textarea id="sources" name="sources" placeholder="sources" 
+  rows="4" cols="50" [(ngModel)]="project.sources"></textarea>
+</form>
+
+<button type="submit" form="submit-form" value="Submit">Submit
