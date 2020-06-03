@@ -1,0 +1,24 @@
+@import 'variables';
+
+.task-list-container {
+  margin-bottom: 2px;
+  cursor: pointer;
+}
+
+.link-box {
+  border-bottom: 1px solid #f5f4f4e1;
+  width: 80%;
+  padding: 7px;
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.start-link {
+  cursor: default;
+  color: rgb(184, 182, 182);
+}
+
+.start-link:hover {
+  color: rgb(218, 218, 218);
+  text-decoration: none;
+}

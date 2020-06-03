@@ -48,6 +48,7 @@ namespace Planner.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginUser loginUser)
         {
+
             User userFromRepo = await _repo.Login(loginUser.Username.ToLower(), loginUser.Password);
 
             if (userFromRepo == null)
@@ -78,11 +79,6 @@ namespace Planner.API.Controllers
             return Ok(new {
                 token = tokenHandler.WriteToken(token)
             });
-
-
-
-
         }
-
     }
 }

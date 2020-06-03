@@ -1,0 +1,12 @@
+<div class="task-list-container">
+  <div *ngIf="tasklist.tasks.length == 0; else renderTasks" class="link-box">
+    <a class="start-link" (click)="addTask()">Press enter to add a task</a>
+  </div>
+  <ng-template #renderTasks>
+    <div (clickOutside)="deselect()" 
+    [delayClickOutsideInit]="true">
+      <app-task-item *ngFor="let task of tasklist.tasks" 
+        [task]="task" (completeEvent)="completeTask($event)"></app-task-item>
+    </div>
+  </ng-template>
+</div>

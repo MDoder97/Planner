@@ -1,0 +1,94 @@
+@import 'variables';
+
+.check-box {
+  vertical-align: middle;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.focus {
+  background-color: rgb(2, 73, 180, 0.4);
+}
+
+.task-box {
+  display: flex;
+  align-items: center;
+  transform-origin: top;
+}
+
+.task-box.complete {
+  animation-name : complete;
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+@keyframes complete {
+  from {
+    transform: scaleY(1);
+    opacity: 1;
+    max-height: 60px;
+  } to {
+    transform: scaleY(0);
+    opacity: 0;
+    max-height: 0px;
+  }
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.selected {
+  visibility: visible;
+}
+
+.task-box:hover app-complete-box {
+  visibility: visible;
+}
+
+.task-box:hover fa-icon {
+  visibility: visible;
+}
+
+.item-box {
+  width: 80%;
+  padding: 4px;
+  margin: 0px 0px 0px 9px;
+  border-bottom: 1px solid #f5f4f45d;
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.item-box:hover {
+  background-color: rgba(245, 245, 245, 0.08);
+}
+
+.item-box.focus {
+  background-color: rgb(2, 73, 180, 0.4);
+}
+
+.item-fit {
+  padding: 3px 4px 3px 5px;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+.input-box {
+  padding: 2px 4px 2px 4px;
+  width: 50%;
+  background-color: $primary;
+  color: whitesmoke;
+  border: 1px solid #555;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.input-box:focus {
+  border-color: rgb(95, 175, 255);
+  box-shadow: 0 0 8px 0 rgb(95, 175, 255);
+}

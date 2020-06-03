@@ -1,0 +1,11 @@
+@import 'variables';
+
+#nav {
+    position: fixed;
+    width: 100%;
+    background-color: $accent;
+}
+
+#title {
+    font-size: 230%;
+}

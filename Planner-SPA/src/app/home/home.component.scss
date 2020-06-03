@@ -1,0 +1,38 @@
+@import 'variables';
+
+.position {
+    position: relative;
+    top: 5em;
+}
+
+#home {
+    margin: 5rem auto;
+    margin-top: 2rem;
+    width: 30%;
+    padding: 10px;
+    text-align: center;
+}
+
+.my-button {
+    padding: 7px 30px;
+    font-size: 20px;
+    width: 55%;
+  }
+  
+#learn {
+    margin-top: 7rem;
+}
+
+#title {
+    font-size: 230%;
+}
+
+#slogan {
+    text-align: center;
+    padding-top: 2rem;
+    font-size: 200%;
+}
+
+#nav {
+    background-color: $accent;
+}

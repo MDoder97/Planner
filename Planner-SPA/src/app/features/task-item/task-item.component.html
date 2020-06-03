@@ -1,0 +1,28 @@
+<div class="task-box" [ngClass]="{complete: task.complete}"
+  (click)="selectTask()"
+  (animationend)="sendCompletion()">
+  
+  <app-complete-box class="hide"
+    [class.selected]="task==tasklistService.selected"
+    (completion)="task.complete=true">
+  </app-complete-box>
+
+  <mat-list-item class="item-box" 
+    [class.focus]="task===tasklistService.selected">
+    <div *ngIf="task.inputMode && task==tasklistService.selected; else showTask">
+      <input #description class="input-box"
+        [(ngModel)]="task.description"/>
+        {{ description.focus() }}
+    </div>
+    <ng-template #showTask>
+      <div class="d-inline-block item-fit" (dblclick)="task.inputMode=true">
+        {{ task.description }}
+      </div>
+    </ng-template>
+  </mat-list-item>
+
+  <fa-icon class="ml-2 hide" [class.selected]="task==tasklistService.selected"
+    [icon]="['fas', 'plus']" size="md">
+  </fa-icon>
+</div>
+<app-task-item *ngFor="let task of task.subtasks" [task]="task" (completeEvent)="completeSubtask($event)"></app-task-item>

@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { RegisterScreenComponent } from './register-screen/register-screen.component';
-import { LoginScreenComponent } from './login-screen/login-screen.component';
+import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/registration'},
-  { path: 'registration', component: RegisterScreenComponent },
-  { path: 'login', component: LoginScreenComponent },
+  { path: '', pathMatch: 'full', component: HomeComponent},
+  { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
+  { path: 'workspace', loadChildren: () => import('./features/workspace.module').then(m => m.WorkspaceModule)},
+  { path: '**', pathMatch: 'full', redirectTo: ''},
 ];
 
 @NgModule({

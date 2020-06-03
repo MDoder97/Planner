@@ -1,30 +1,35 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProjectCreationComponent } from './project-creation/project-creation.component';
-import { RegisterScreenComponent } from './register-screen/register-screen.component';
-import { LoginScreenComponent } from './login-screen/login-screen.component';
+import { HomeComponent } from './home/home.component';
+import { CoreModule } from './core/core.module';
+import { NavComponent } from './nav/nav.component';
+import { CommonModule } from '@angular/common';
+import { MaterialModule } from './shared/material/material.module';
+
 
 @NgModule({
    declarations: [
       AppComponent,
-      ProjectCreationComponent,
-      RegisterScreenComponent,
-      LoginScreenComponent
+      HomeComponent,
+      NavComponent
    ],
    imports: [
-      BrowserModule,
+      CommonModule,
+      CoreModule,
       AppRoutingModule,
       HttpClientModule,
-      FormsModule
+      FormsModule,
+      MaterialModule,
    ],
-   providers: [],
    bootstrap: [
       AppComponent
    ]
 })
-export class AppModule { }
+export class AppModule {
+
+}

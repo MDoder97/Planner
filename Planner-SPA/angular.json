@@ -24,8 +24,17 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "src/styles.scss",
+              {
+                "input": "src/my-theme.scss"
+              }
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/stylings"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -88,7 +97,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           }
@@ -124,5 +133,10 @@
   "defaultProject": "Planner-SPA",
   "cli": {
     "analytics": "a6c53fc6-a6d1-4c1c-a632-233c673f15a2"
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
   }
 }

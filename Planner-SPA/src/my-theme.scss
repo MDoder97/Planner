@@ -1,0 +1,67 @@
+@import '~@angular/material/theming';
+@import 'variables';
+
+@include mat-core();
+$my-theme-primary: mat-palette($md-mcgblackgray, 50);
+$my-theme-accent: mat-palette($md-mcgkingblue);
+
+$my-theme-warn: mat-palette($mat-red);
+
+$my-theme: mat-dark-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);
+
+@include angular-material-theme($my-theme);
+
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: $primary;
+  color: whitesmoke;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+   -webkit-text-fill-color: whitesmoke;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.mat-raised-button{
+    background-color:$accent;
+}
+
+.input {
+  justify-content: center;
+  align-items: center;
+  display:flex; 
+  position:relative; 
+  top:0; 
+  bottom:5em; 
+  right:0; 
+  left:0;
+}
+
+app-main-view .mat-tab-labels :last-child.mat-tab-label {
+  min-width: 0;
+  padding: 0px;
+  color: unset;
+  opacity: unset;
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+  border-color:rgb(241, 241, 241); 
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle{
+  color:rgb(241, 241, 241);
+  background-color:rgb(241, 241, 241);
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-ripple .mat-ripple-element {
+  background-color: rgb(241, 241, 241);
+}

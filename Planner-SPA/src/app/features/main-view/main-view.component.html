@@ -1,0 +1,103 @@
+<div class="wrapper" [ngClass]="{ kill: sidebarOpen == false }">
+  <div class="sidebar">
+    <div matRipple class="hamburger" (click)="sidebarOpen=!sidebarOpen">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="title">
+      <h1>Schism</h1>
+    </div>
+    <ul>
+      <li>
+        <div matRipple class="d-flex sidenav-item pointer">
+          <a>
+            <span class="element">My Tasks</span>
+          </a>
+          <fa-icon class="pointer side-icons" [icon]="['fas', 'tasks']" size="lg"></fa-icon>
+        </div>
+      </li>
+      <li>
+        <div matRipple class="d-flex sidenav-item pointer" (click)="projectsDropdown=!projectsDropdown">
+          <a>
+            <span class="element">Projects</span>
+          </a>
+          <fa-icon class="pointer side-icons" [icon]="['fab', 'buffer']" size="lg"></fa-icon>
+        </div>
+        <div *ngIf="projectsDropdown && sidebarOpen" class="dropdown">
+          <a matRipple class="dropdown-item">Current Project</a>
+          <div class="plus-square">
+            <fa-icon class="pointer" [icon]="['far', 'plus-square']" size="2x"></fa-icon>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div matRipple class="d-flex sidenav-item pointer" (click)="membersDropdown=!membersDropdown">
+          <a>
+            <span class="element">Members</span>
+          </a>
+          <fa-icon class="pointer side-icons" [icon]="['fas', 'users']" size="lg"></fa-icon>
+        </div>
+        <div *ngIf="membersDropdown && sidebarOpen" class="dropdown">
+          <a matRipple class="dropdown-item">Me</a>
+          <a matRipple class="dropdown-item">Pera</a>
+          <div class="plus-square">
+            <fa-icon class="pointer" [icon]="['far', 'plus-square']" size="2x"></fa-icon>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="settings">
+          <fa-icon class="pointer" [icon]="['fas', 'cog']" size="2x"></fa-icon>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="main-container">
+    <div class="top-menu">
+      <h2 class="pt-2">Current Project</h2>
+
+      <ul class="pt-2">
+        <li *ngIf="openSearch">
+          <input #search class="input-box" (blur)="openSearch=false"/>
+          {{ search.focus() }}
+        </li>
+        <li *ngIf="openSearch==false" (click)="openSearch=!openSearch">
+          <fa-icon class="pointer top-menu-icon" [icon]="['fas', 'search']" size="lg"></fa-icon>
+        </li>
+        <li>
+          <fa-icon class="pointer top-menu-icon" [matMenuTriggerFor]="notificationsMenu" [icon]="['fas', 'bell']" size="lg"></fa-icon>
+        </li>
+        <mat-menu  #notificationsMenu="matMenu">
+          <p class="pl-3 pr-3">No new notifications</p>
+        </mat-menu>
+        <li>
+          <fa-icon class="pointer top-menu-icon" [matMenuTriggerFor]="userMenu" [icon]="['fas', 'user-circle']" size="lg"></fa-icon>
+        </li>
+        <mat-menu  #userMenu="matMenu">
+          <button class="menu-item" mat-menu-item>My Profile</button>
+          <button class="menu-item" mat-menu-item>Send an invitation</button>
+          <button class="menu-item" mat-menu-item (click)="logout()">Logout</button>
+        </mat-menu>
+      </ul>
+    </div>
+    <mat-tab-group animationDuration="0ms" class="task-view"  (selectedTabChange)="currentList($event)">
+      <mat-tab #tab *ngFor="let tasklist of tasklists" [label]="tasklist.name">
+        <app-task-list [tasklist]="tasklist" [isActive]="tab.isActive"></app-task-list>
+      </mat-tab>
+      <mat-tab disabled>
+        <ng-template mat-tab-label>
+          <button mat-flat-button [matMenuTriggerFor]="menu" class="plus">
+            <fa-icon class="align-middle" [icon]="['fas', 'plus']"size="lg"></fa-icon>
+          </button>
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item class="menu-item" (click)="openDialog('Task')">New Task list</button>
+      <button mat-menu-item class="menu-item" (click)="openDialog('Check')">New Check list</button>
+    </mat-menu>
+  </div>
+</div>
